@@ -1,0 +1,166 @@
+# Every Open API file needs this
+swagger: '2.0'
+# Document metadata
+info:
+ version: "3.0"
+ title: Music API
+
+# URL data
+host: api.musicplayz.com
+basePath: /v3
+schemes:
+ - https
+ 
+# Endpoints
+paths:
+  /playlist:
+     # Get one or more albums
+     get:
+     # Query parameters
+      parameters:
+        -  name: limit
+           in: header
+           required: false
+           type: integer
+           description: Number of playlists to return
+           
+        -  name: offset
+           in: header
+           required: false
+           type: integer
+           description: Index of the first playlist to return. (0=start at the beginning, 10 = skip the first 10, etc.)
+           
+        -  name: search
+           in: header
+           required: false
+           type: string
+           description: Return playlists whose name contains this string
+           
+      responses:
+       # Response code
+       200:
+         description: Successful response
+         
+     post:
+      parameters:
+        - name: newPlaylist
+          in: body
+          required: true
+          schema: 
+            $ref: '#/definitions/newPlaylist'
+          description: "bla bla"
+          
+          
+      responses:
+       # Response code
+       200:
+         description: Successful response
+          
+          
+          
+         
+  /playlist/{playlist-id}:
+    delete:
+      parameters:
+        - name: playlist-id
+          in: path
+          required: true
+          type: string
+        
+        
+      responses:
+        200:
+          description: Successful response
+          
+    get:
+      parameters:
+        - name: playlist-id
+          in: path
+          required: true
+          type: string
+        
+        
+      responses:
+        200:
+          description:  Successful response
+          schema:
+            $ref: '#/definitions/playlistWithSongs'
+          
+    put:
+      parameters:
+        - name: playlist-id
+          in: path
+          required: true
+          type: string
+          
+        - name: newPlaylist
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/newPlaylist'
+          description: bla bla bla
+        
+        
+        - name: name
+          in: header
+          required: true
+          type: string
+          
+      responses:
+        200:
+          description: Successful response (get)
+  
+    
+          
+          
+          
+definitions:
+  newPlaylist:
+    properties:
+      name:
+        type: integer
+      songIds:
+        type: array
+        items:
+          type: integer
+          
+  playlistWithSongs:
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      songs:
+        type: array
+        items:
+          type: integer
+          
+  song:
+    properties:
+      id:
+        type: integer
+      title:
+        type: string
+      artist:
+        type: string
+      
+ 
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
