@@ -1,7 +1,10 @@
 # Swagger
 ![Swagger](https://img.shields.io/badge/-Swagger-%23Clojure?style=for-the-badge&logo=swagger&logoColor=white)
 
-In this repository I took some notes in my journey to learn Swagger. I've wrote some yaml (yaml ain't markup language. I adore the name) files.
+In this repository I took some notes in my journey to learn Swagger. I've wrote some yaml (yaml ain't markup language. I adore the name) files. To create the page below I used [Swagger Editor](https://swagger.io/tools/swagger-editor/) online. 
+
+<img src="https://github.com/magno-brito/Swagger/assets/84158231/f8691674-fef7-432f-a1ad-034fd34b7801" width="50%" height="50%" >
+
 
 ### Security
 
