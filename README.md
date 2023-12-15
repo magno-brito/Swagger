@@ -1,6 +1,7 @@
 # Swagger
-TESTANDO
+![Swagger](https://img.shields.io/badge/-Swagger-%23Clojure?style=for-the-badge&logo=swagger&logoColor=white)
 
+In this repository I took some notes in my journey to learn Swagger. I've wrote some yaml (yaml ain't markup language. I adore the name) files.
 
 ### Security
 
