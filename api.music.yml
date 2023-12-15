@@ -10,6 +10,10 @@ host: api.musicplayz.com
 basePath: /v3
 schemes:
  - https
+consumes:
+  - application/json
+produces:
+  - application/json
  
 # Endpoints
 paths:
@@ -35,6 +39,9 @@ paths:
            required: false
            type: string
            description: Return playlists whose name contains this string
+      
+      security:
+          - basicAuth: []
            
       responses:
        # Response code
@@ -71,6 +78,15 @@ paths:
       responses:
         200:
           description: Successful response
+        
+        410:
+          description: Playlist with that name already exists
+          schema:
+            $ref: '#/definitions/error'
+          consumes:
+            - application/json
+          produces:
+            - application/json
           
     get:
       parameters:
@@ -110,7 +126,24 @@ paths:
         200:
           description: Successful response (get)
   
-    
+  /playlist/{playlist-id}/image:
+    get:
+      operationId: getImage
+      parameters:
+        - name: playlist-id
+          in: path
+          required: true
+          type: string
+
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: file
+          produces:
+          - image/png
+
+
           
           
           
@@ -143,24 +176,44 @@ definitions:
         type: string
       artist:
         type: string
-      
- 
- 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
 
+  error:
+    properties:
+      errorMessage:
+        type: string
+      logData:
+        type: array
+        items:
+          type: string
+
+
+  logData:
+    properties:
+      entry: 
+        type: integer
+      date:
+        type: string
+    
+  
+securityDefinitions:
+    basicAuth:
+        type: basic
+ 
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
